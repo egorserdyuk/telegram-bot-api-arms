@@ -31,8 +31,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{ secrets.DOCKERHUB_LOGIN }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          username: thecooldump
+          password: dckr_pat_FLwrcA8jlhwOLLgrtJqH1iTz58g
       - name: Set version
         id: current-version
         run: |
