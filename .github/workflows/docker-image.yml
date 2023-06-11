@@ -49,5 +49,5 @@ jobs:
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache
           tags: |
-            aiogram/telegram-bot-api:latest
-            aiogram/telegram-bot-api:${{ env.TG_SERVER_VERSION }}
+            thecooldump/telegram-bot-api-arms:latest
+            thecooldump/telegram-bot-api-arms:${{ env.TG_SERVER_VERSION }}
