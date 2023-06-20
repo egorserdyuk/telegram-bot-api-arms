@@ -31,8 +31,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v1
         with:
-          username: ${{arm-telegramapi.DOCKER_NAME}}
-          password: ${{arm-telegramapi.DOCKER_TOKEN}}
+          username: ${{secrets.DOCKER_NAME}}
+          password: ${{secrets.DOCKER_TOKEN}}
       - name: Set version
         id: current-version
         run: |
