@@ -1,8 +1,8 @@
 # Unofficial Docker image of Telegram Bot API for ARM systems
 
-Here is Docker image for https://github.com/tdlib/telegram-bot-api
+Here is Docker image for [Telegram bot API](https://github.com/tdlib/telegram-bot-api)
 
-The source code was taken from the repository https://github.com/aiogram/telegram-bot-api
+The source code was taken from the repository [Aiogram Telegram bot's API for 386/amd64](https://github.com/aiogram/telegram-bot-api)
 
 The Telegram Bot API provides an HTTP API for creating [Telegram Bots](https://core.telegram.org/bots).
 
@@ -80,7 +80,7 @@ version: '3.7'
 
 services:
   telegram-bot-api:
-    image: aiogram/telegram-bot-api:latest
+    image: thecooldump/telegram-bot-api:latest
     environment:
       TELEGRAM_API_ID: "<api-id>"
       TELEGRAM_API_HASH: "<api-hash>"
