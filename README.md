@@ -15,7 +15,7 @@ To build yourself using `Docker BuildX` use this command: `docker buildx build -
 Before start, you will need to obtain `api-id` and `api-hash` as described in https://core.telegram.org/api/obtaining_api_id and specify them using the `TELEGRAM_API_ID` and `TELEGRAM_API_HASH` environment variables.
 
 And then to start the Telegram Bot API all you need to do is
-`docker run -d -p 8081:8081 --name=telegram-bot-api --restart=always -v telegram-bot-api-data:/var/lib/telegram-bot-api -e TELEGRAM_API_ID=<api_id> -e TELEGRAM_API_HASH=<api-hash> thecooldump/telegram-bot-api:latest`
+`docker run -d -p 8081:8081 --name=telegram-bot-api-arms --restart=always -v telegram-bot-api-arms-data:/var/lib/telegram-bot-api-arms -e TELEGRAM_API_ID=<api_id> -e TELEGRAM_API_HASH=<api-hash> thecooldump/telegram-bot-api-arms:latest`
 
 ## Configuration
 
@@ -67,11 +67,11 @@ Use the `TELEGRAM_HTTP_IP_ADDRESS: "[::]"` parameter to listen on the ipv6 intra
 
 ## Start with persistent storage
 
-Server working directory is `/var/lib/telegram-bot-api` so if you want to persist the server data you can mount this folder as volume:
+Server working directory is `/var/lib/telegram-bot-api-arms` so if you want to persist the server data you can mount this folder as volume:
 
-`-v telegram-bot-api-data:/etc/telegram/bot/api`
+`-v telegram-bot-api-arms-data:/etc/telegram/bot/api`
 
-Note that all files in this directory will be owned by user `telegram-bot-api` and group `telegram-bot-api` (uid: `101`, gid: `101`, compatible with [nginx](https://hub.docker.com/_/nginx) image)
+Note that all files in this directory will be owned by user `telegram-bot-api-arms` and group `telegram-bot-api-arms` (uid: `101`, gid: `101`, compatible with [nginx](https://hub.docker.com/_/nginx) image)
 
 ## Usage via docker stack deploy or docker-compose
 
@@ -79,16 +79,16 @@ Note that all files in this directory will be owned by user `telegram-bot-api` a
 version: '3.7'
 
 services:
-  telegram-bot-api:
-    image: thecooldump/telegram-bot-api:latest
+  telegram-bot-api-arms:
+    image: thecooldump/telegram-bot-api-arms:latest
     environment:
       TELEGRAM_API_ID: "<api-id>"
       TELEGRAM_API_HASH: "<api-hash>"
     volumes:
-      - telegram-bot-api-data:/var/lib/telegram-bot-api
+      - telegram-bot-api-arms-data:/var/lib/telegram-bot-api-arms
     ports:
       - "8081:8081"
 
 volumes:
-  telegram-bot-api-data:
+  telegram-bot-api-arms-data:
 ```
